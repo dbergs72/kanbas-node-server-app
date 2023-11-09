@@ -11,7 +11,7 @@ const app = express();
 app.use(
   cors({
     credentials: true,
-    origin: process.env.FRONTEND_URL,
+    origin: ["http://localhost:3000", "https://a5--dazzling-cat-7b74a7.netlify.app", "http://a5--dazzling-cat-7b74a7.netlify.app", "https://dazzling-cat-7b74a7.netlify.app"],
   }),
 );
 app.use(express.json());

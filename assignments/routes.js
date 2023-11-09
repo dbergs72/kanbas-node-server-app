@@ -1,4 +1,5 @@
 import db from "../Database/index.js";
+import Database from "../Database/index.js";
 function AssignmentRoutes(app) {
     app.put("/api/assignments/:aid", (req, res) => {
         const { aid } = req.params;
@@ -30,6 +31,10 @@ function AssignmentRoutes(app) {
     app.get("/api/courses/:cid/assignments", (req, res) => {
         const { cid } = req.params;
         const assignments = db.assignments.filter((a) => a.course === cid);
+        res.send(assignments);
+    });
+    app.get("/api/assignments", (req, res) => {
+        const assignments = Database.assignments;
         res.send(assignments);
     });
 }
