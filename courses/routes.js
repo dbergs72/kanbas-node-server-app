@@ -25,6 +25,17 @@ function CourseRoutes(app) {
        res.send(course);
     });
 
+
+    app.get("/api/courses/:id", (req, res) => {
+        const { id } = req.params;
+        const course = Database.courses
+            .find((c) => c._id === id);
+        if (!course) {
+            res.status(404).send("Course not found");
+            return;
+        }
+        res.send(course);
+    });
     app.get("/api/courses", (req, res) => {
         const courses = Database.courses;
         res.send(courses);
