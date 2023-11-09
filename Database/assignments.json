@@ -1,0 +1,83 @@
+[
+  {
+    "_id": "A101",
+    "title": "Propulsion Assignment",
+    "course": "RS101",
+    "dueDate": "2023-09-18",
+    "availableFrom": "2023-10-25",
+    "until": "2023-10-30",
+    "description": "This assignment is about propulsion."
+  },
+  {
+    "_id": "A102",
+    "title": "Combustion Analysis",
+    "course": "RS101",
+    "dueDate": "2023-09-20",
+    "availableFrom": "2023-10-20",
+    "until": "2023-10-25",
+    "description": "This assignment is about combustion."
+  },
+  {
+    "_id": "A103",
+    "title": "Nozzle Design Project",
+    "course": "RS101",
+    "dueDate": "2023-09-23",
+    "availableFrom": "2023-10-16",
+    "until": "2023-10-20",
+    "description": "This assignment is about nozzle design."
+  },
+  {
+    "_id": "A201",
+    "title": "Aerodynamics Quiz",
+    "course": "RS102",
+    "dueDate": "2023-09-24",
+    "availableFrom": "2023-10-06",
+    "until": "2023-10-10",
+    "description": "This assignment is about aerodynamics."
+  },
+  {
+    "_id": "A202",
+    "title": "Flow Analysis",
+    "course": "RS102",
+    "dueDate": "2023-09-25",
+    "availableFrom": "2023-11-16",
+    "until": "2023-11-20",
+    "description": "This assignment is about flow analysis."
+  },
+  {
+    "_id": "A203",
+    "title": "Heating Analysis",
+    "course": "RS102",
+    "dueDate": "2023-09-26",
+    "availableFrom": "2023-12-16",
+    "until": "2023-12-20",
+    "description": "This assignment is about heating analysis."
+  },
+  {
+    "_id": "A301",
+    "title": "Structural Design Task",
+    "course": "RS103",
+    "dueDate": "2023-09-29",
+    "availableFrom": "2023-12-15",
+    "until": "2023-12-20",
+    "description": "This assignment is about structural design."
+  },
+  {
+    "_id": "A302",
+    "title": "Orbital Calculations",
+    "course": "RS103",
+    "dueDate": "2023-10-05",
+    "availableFrom": "2023-09-16",
+    "until": "2023-09-20",
+    "description": "This assignment is about orbital calculations."
+  },
+  {
+    "_id": "A303",
+    "title": "Systems Engineering Exam",
+    "course": "RS103",
+    "dueDate": "2023-10-17",
+    "availableFrom": "2023-11-11",
+    "until": "2023-11-15",
+    "description": "This assignment is about systems engineering."
+  }
+]
