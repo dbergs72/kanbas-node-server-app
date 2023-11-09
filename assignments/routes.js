@@ -1,40 +1,35 @@
-import Database from "../Database/index.js";
+import db from "../Database/index.js";
 function AssignmentRoutes(app) {
-    app.put("/api/assignments/:id", (req, res) => {
-        const { id } = req.params;
-        const assignment = req.body;
-        Database.assignments = Database.assignments.map((a) =>
-            a._id === id ? { a, ...assignment } : a,
-        );
+    app.put("/api/assignments/:aid", (req, res) => {
+        const { aid } = req.params;
+        const assignmentIndex = db.assignments.findIndex((a) => a._id === aid);
+        db.assignments[assignmentIndex] = {
+            ...db.assignments[assignmentIndex],
+            ...req.body,
+        };
         res.sendStatus(204);
     });
 
-    app.delete("/api/assignments/:id", (req, res) => {
-        const { id } = req.params;
-        Database.assignments = Database.assignments.filter((a) => a._id !== id);
-        res.sendStatus(204);
-    });
-
-    app.post("/api/assignments", (req, res) => {
+    app.post("/api/courses/:cid/assignments", (req, res) => {
+        const { cid } = req.params;
         const assignment = {
             ...req.body,
             _id: new Date().getTime().toString(),
+            course: cid,
         };
-        Database.assignments.push(assignment);
+        db.assignments.push(assignment);
         res.send(assignment);
     });
 
-    app.get("/api/assignments/:id", (req, res) => {
-        const { id } = req.params;
-        const assignment = Database.assignments.find((a) => a._id === id);
-        if (!assignment) {
-            res.status(404).send("Course not found");
-            return;
-        }
-        res.send(assignment);
+    app.delete("/api/assignments/:aid", (req, res) => {
+        const { aid } = req.params;
+        db.assignments = db.assignments.filter((a) => a._id !== aid);
+        res.sendStatus(200);
     });
-    app.get("/api/assignments", (req, res) => {
-        const assignments = Database.assignments;
+
+    app.get("/api/courses/:cid/assignments", (req, res) => {
+        const { cid } = req.params;
+        const assignments = db.assignments.filter((a) => a.course === cid);
         res.send(assignments);
     });
 }
