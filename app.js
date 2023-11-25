@@ -6,7 +6,10 @@ import CourseRoutes from "./courses/routes.js";
 import ModuleRoutes from "./modules/routes.js";
 import "dotenv/config";
 import AssignmentRoutes from "./assignments/routes.js";
+import mongoose from "mongoose";
+import UserRoutes from "./users/routes.js";
 
+mongoose.connect("mongodb://localhost:27017/kanbas");
 const app = express();
 app.use(
   cors({
@@ -15,6 +18,7 @@ app.use(
   }),
 );
 app.use(express.json());
+UserRoutes(app);
 AssignmentRoutes(app);
 CourseRoutes(app);
 ModuleRoutes(app);
