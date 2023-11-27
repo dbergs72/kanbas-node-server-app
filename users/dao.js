@@ -1,7 +1,10 @@
 import model from "./model.js";
 export const createUser = (user) => model.create(user);
 export const findAllUsers = () => model.find();
-export const findUserById = (userId) => model.findById(userId);
+export const findUserById = (userId) => {
+    console.log("RECEIVED VALUE " + userId);
+    model.findOne({ _id: userId });
+};
 export const findUserByUsername = (username) =>
   model.findOne({ username: username });
 export const findUserByCredentials = (usr, pass) =>
