@@ -6,6 +6,7 @@ import ModuleRoutes from "./modules/routes.js";
 import Lab5 from "./Lab5.js";
 import Hello from "./hello.js";
 import cors from "cors";
+import session from "express-session";
 import express from "express";
 import "dotenv/config";
 
@@ -23,6 +24,12 @@ app.use(
     ],
   }),
 );
+const sessionOptions = {
+  secret: "any string",
+  resave: false,
+  saveUninitialized: false,
+};
+app.use(session(sessionOptions));
 app.use(express.json());
 UserRoutes(app);
 AssignmentRoutes(app);
