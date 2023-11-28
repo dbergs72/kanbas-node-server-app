@@ -39,7 +39,10 @@ function UserRoutes(app) {
     currentUser = await dao.findUserByCredentials(username, password);
     res.json(currentUser);
   };
-  const signout = (req, res) => {};
+  const signout = (req, res) => {
+    currentUser = null;
+    res.json({ status: "OK" });
+  };
   const account = async (req, res) => {
     res.json(currentUser);
   };
