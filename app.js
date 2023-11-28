@@ -10,7 +10,7 @@ import session from "express-session";
 import express from "express";
 import "dotenv/config";
 
-const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || 'mongodb://127.0.0.1:27017/kanbas';
+const CONNECTION_STRING = process.env.REACT_APP_DB_CONNECTION_STRING || 'mongodb://127.0.0.1:27017/kanbas';
 mongoose.connect(CONNECTION_STRING);
 
 const app = express();
@@ -24,7 +24,8 @@ app.use(
         "https://dazzling-cat-7b74a7.netlify.app",
         "https://a6--dazzling-cat-7b74a7.netlify.app",
         "http://a6--dazzling-cat-7b74a7.netlify.app",
-        process.env.FRONTEND_URL],
+        process.env.FRONTEND_URL
+    ],
   }),
 );
 const sessionOptions = {
