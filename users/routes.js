@@ -26,9 +26,9 @@ function UserRoutes(app) {
     res.json(status);
   };
   const signup = async (req, res) => {
-    console.log("HITTT");
-    const userOverlap = await dao.findUserByUsername(req.body.username);
-    if (userOverlap) {
+    console.log("Creating user " + JSON.stringify(req.body));
+    const user = await dao.findUserByUsername(req.body.username);
+    if (user) {
       res.status(400).json({ error: "Username already taken" });
     }
     currentUser = await dao.createUser(req.body);
