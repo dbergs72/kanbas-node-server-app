@@ -10,18 +10,21 @@ import session from "express-session";
 import express from "express";
 import "dotenv/config";
 
-mongoose.connect("mongodb://127.0.0.1:27017/kanbas");
+const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || 'mongodb://127.0.0.1:27017/kanbas';
+mongoose.connect(CONNECTION_STRING);
 
 const app = express();
 app.use(
   cors({
     credentials: true,
     origin: [
-      "http://localhost:3000",
-      "https://a5--dazzling-cat-7b74a7.netlify.app",
-      "http://a5--dazzling-cat-7b74a7.netlify.app",
-      "https://dazzling-cat-7b74a7.netlify.app",
-    ],
+        "http://localhost:3000",
+        "https://a5--dazzling-cat-7b74a7.netlify.app",
+        "http://a5--dazzling-cat-7b74a7.netlify.app",
+        "https://dazzling-cat-7b74a7.netlify.app",
+        "https://a6--dazzling-cat-7b74a7.netlify.app",
+        "http://a6--dazzling-cat-7b74a7.netlify.app",
+        process.env.FRONTEND_URL],
   }),
 );
 const sessionOptions = {
@@ -29,6 +32,13 @@ const sessionOptions = {
   resave: false,
   saveUninitialized: false,
 };
+if (process.env.NODE_ENV !== "development") {
+    sessionOptions.proxy = true;
+    sessionOptions.cookie = {
+        secure: true,
+        sameSite: "none",
+    };
+}
 app.use(session(sessionOptions));
 app.use(express.json());
 UserRoutes(app);
